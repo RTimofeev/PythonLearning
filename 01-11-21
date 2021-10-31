@@ -1,0 +1,23 @@
+### MIN and MAX ###
+
+>>> a = [1,-9,5,90]
+>>> def minamax(mx):
+...     mini = min(mx)
+...     maxi = max(mx)
+...     print(f'min is {mini} and max is {maxi}')
+...
+>>> minamax(a)
+min is -9 and max is 90
+>>>
+
+
+### FACTORIALS ####
+
+>>> def recfact(n):
+...     if n == 0:
+...         return 1
+...     return n * recfact(n - 1)
+...
+>>> print(recfact(5))
+120
+>>>
