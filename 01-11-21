@@ -88,3 +88,45 @@ print("\n# dict #")
 s = {1:2,3:3,4:5,6:7,6:8,7:9,6786878:10,789:0,0:11}
 print('max - ', max(s))
 print('min - ', min(s))
+
+# ### try and except ###
+
+# try:
+#     input = int(input())
+# except:
+#     print('^ Something wrong! ^')
+
+### callable ###
+
+# def function_one():
+#     pass
+
+# var_a = 'string'
+# var_b = function_one
+# var_c = var_d = function_one()
+
+# print(callable(len)), print(callable(int)), print(callable(var_a)), print(callable(var_b)), print(callable(var_d))
+
+### SUM ###
+
+# print(sum((1,2,3)))
+# print(sum([1,2,3]))
+# print(sum({1,2,3}))
+# print(sum({1:2,2:3,3:4}))
+
+### ARGS, KWARGS ###
+
+# s = [1, 2, 3, 4, 5, 6, 7]
+# sa = {'a': 'b', 'c': 'd', 'e': 'f'}
+
+# def itsargs(*args):
+#     print(args)
+
+# def itskwargs(**kwargs):
+#     print(kwargs)
+    
+# itsargs(1,2,3,4,5,6,7)
+# itsargs(*s)
+# itsargs(s)
+# itskwargs(**sa)
+# itskwargs(key0='var0', key1=2)
