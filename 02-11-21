@@ -1,0 +1,57 @@
+### Pomodoro timer as telegram bot ###
+# https://github.com/python-telegram-bot/python-telegram-bot
+
+# pip isntall python-telegram-bot
+
+import time
+from telegram.ext import Updater, CommandHandler, CallbackContext
+
+
+# def start_bot(bot, Updater):
+#     print('Hello!')
+
+
+def start_bot(update: Updater, context: CallbackContext):
+    print(update)
+    update.message.reply_text('Запущен отсчет 25 минут')
+    for y in range(25):
+        time.sleep(60)
+        update.message.reply_text(f'Прошло: {y+1} минут(а), осталось: {25-1-y} минут(а)')
+    else:
+        for x in range(10):
+            update.message.reply_text('Прошло: 25 минут!!!')
+
+def main():
+    updtr = Updater('***TOKEN***')
+    updtr.dispatcher.add_handler(CommandHandler('run' or 'Run', start_bot))
+    updtr.start_polling()
+    updtr.idle()
+
+if __name__ == '__main__':
+    main()
+    
+### Weather thith OpenWeatherMap ###
+# https://pyowm.readthedocs.io/en/latest/v3/code-recipes.html
+
+import pyowm
+from pyowm.utils.config import get_default_config
+config_dict = get_default_config( )
+config_dict['language'] = 'ru'
+owm = pyowm.OWM('593c06d0fee95587b182da7b254ab615', config_dict)
+mgr = owm.weather_manager()
+
+
+place = 'Санкт-Петербург'
+observation = mgr.weather_at_place(place)
+w = observation.weather
+temp = w.temperature('celsius')['temp']
+
+w.detailed_status         # 'clouds'
+w.wind()                  # {'speed': 4.6, 'deg': 330}
+w.humidity                # 87
+w.rain                    # {}
+w.heat_index              # None
+w.clouds                  # 75
+
+
+print(f'В Санкт-Петербурге сегодня средняя температура: {temp} градусов цельсия.')
